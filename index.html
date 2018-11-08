@@ -5,9 +5,37 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>RPG</title>
+
+	<!-- jQuery -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- My game script -->
 	<script src="assets/javascript/game.js"></script>
+
+	<!-- Reset css -->
+	<link rel="stylesheet" href="assets/css/reset.css">
+
+	<!-- Personal CSS -->
+	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-	
+	<h1>Jet Set Radio Future RPG</h1>
+	<div id="char-select-container">
+		<h2 id="char-select-label">Select your character</h2>
+		<div id="char-select"></div>
+	</div>
+
+	<div id="player-char-container">
+		<h2 id="player-char-label">Your character</h2>
+		<div id="player-char"></div>
+	</div>
+
+	<button id="attack-button">ATTACK</button>
+
+	<div id="defender-char-container">
+		<h2 id="defender-char-label">Defender</h2>
+		<div id="defender-char"></div>
+	</div>
+
 </body>
 </html>

@@ -1,0 +1,41 @@
+
+.char-img {
+	width: 150px;
+	height: 150px;
+}
+
+.char-card {
+	margin: 5px;
+	border: 3px;
+	border-style: solid;
+	display: inline-block;
+	position: relative;
+	border-color: #c3ff25;
+	color: #08fcfb;
+
+	background-color: powderblue;
+}
+
+
+.enemy-card {
+	color: tomato;
+	border-color: #ad3018;
+}
+
+.char-label {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: #44545d;
+	opacity: .85;
+}
+
+.char-label-name {
+	float: left;
+	padding: 2px;
+}
+
+.char-label-hp {
+	float: right;
+	padding: 2px;
+}
