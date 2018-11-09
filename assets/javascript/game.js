@@ -1,6 +1,6 @@
 var characterStatList = [
 	["Beat", 6, 6, 100, "assets/images/beat.png"],
-	["Goji Rokkaku", 4, 8, 200, "assets/images/goji.png"],
+	["Goji", 4, 8, 200, "assets/images/goji.png"],
 	["Jazz", 7, 6, 80, "assets/images/jazz.png"],
 	["Poison Jam", 5, 9, 75, "assets/images/poison.png"]
 ]
@@ -46,6 +46,9 @@ function Character(name, attack, counter, hp, image, index) {
 
 	this.updateHPHTML = function () {
 		this.hpLabel.html(this.hp);
+		if (this.hp < 50) {
+			this.hpLabel.css("color", "red");
+		}
 		console.log(this);
 	};
 
@@ -107,7 +110,6 @@ $(document).ready(function () {
 			var char = this.characterList[index];
 			this.characterList.splice(index, 1);
 			for (var i = 0; i < this.characterList.length; i++) {
-
 				this.characterList[i].updateIndex(i);
 			}
 			return char;

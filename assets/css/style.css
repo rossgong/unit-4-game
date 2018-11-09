@@ -1,7 +1,23 @@
+@font-face {
+    font-family: "jsrfFont";
+    src:url("../font/NiseJSRF.TTF");
+}
+
+body {
+	font-family: jsrfFont;
+}
+
+h1 {
+	font-size: 24px;
+	margin: 10px;
+}
+
+div {
+	margin: 10px;
+}
 
 .char-img {
-	width: 150px;
-	height: 150px;
+	width: 175px;
 }
 
 .char-card {
@@ -12,13 +28,12 @@
 	position: relative;
 	border-color: #c3ff25;
 	color: #08fcfb;
-
 	background-color: powderblue;
 }
 
 
 .enemy-card {
-	color: tomato;
+	color: darksalmon;
 	border-color: #ad3018;
 }
 
@@ -28,14 +43,36 @@
 	width: 100%;
 	background-color: #44545d;
 	opacity: .85;
+	margin: 0;	
+	font-size: 12px;
 }
 
 .char-label-name {
 	float: left;
-	padding: 2px;
+	padding: 5px;
+	
 }
 
 .char-label-hp {
 	float: right;
-	padding: 2px;
+	padding: 5px;
+	height: 100%;
+}
+
+#attack-button {
+	background-color: darkred;
+	border: 0;
+	font-family: inherit;
+	color: white;
+	padding: 5px;
+	width: 10%;
+	margin: 0 auto;
+}
+
+#player-char-container {
+	float: left;
+}
+
+#defender-char-container {
+	float: right;
 }
