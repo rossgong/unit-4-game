@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,24 +19,39 @@
 	<!-- Personal CSS -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-	<h1>Jet Set Radio Future RPG</h1>
-	<div id="char-select-container">
-		<h2 id="char-select-label">Select your character</h2>
-		<div id="char-select"></div>
+	<div id="game-container">
+		<h1>Jet Set Radio Future RPG</h1>
+		<div id="char-select-container">
+			<h2 id="char-select-label">Select your character</h2>
+			<div id="char-select">
+			</div>
+		</div>
+
+		<div id="current-char-container">
+			<div id="player-char-container">
+				<h2 id="player-char-label">Your character</h2>
+				<div id="player-char">
+					<div class="char-card player-card" id="player-blank">
+						<img class="char-img" src="assets/images/blank.png" alt="blank">
+
+					</div>
+				</div>
+			</div>
+
+			<button id="attack-button">
+				<img src="assets/images/can.png" alt="Spray Can" id="img-spray-can">
+				<p>Spray</p>
+			</button>
+
+			<div id="defender-char-container">
+				<h2 id="defender-char-label">Defender</h2>
+				<div id="defender-char">
+				</div>
+			</div>
+		</div>
 	</div>
-
-	<div id="player-char-container">
-		<h2 id="player-char-label">Your character</h2>
-		<div id="player-char"></div>
-	</div>
-
-	<button id="attack-button">Spray</button>
-
-	<div id="defender-char-container">
-		<h2 id="defender-char-label">Defender</h2>
-		<div id="defender-char"></div>
-	</div>
-
 </body>
+
 </html>

@@ -16,6 +16,23 @@ div {
 	margin: 10px;
 }
 
+#game-container {
+	background-image: url("../images/soul.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 100vh;
+	width: 1024px;
+	margin: 0 auto;
+}
+
+#char-select {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
 .char-img {
 	width: 175px;
 }
@@ -59,20 +76,47 @@ div {
 	height: 100%;
 }
 
+#current-char-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	overflow: auto;
+}
+
+#player-char-container {
+}
+
 #attack-button {
 	background-color: darkred;
 	border: 0;
 	font-family: inherit;
 	color: white;
-	padding: 5px;
-	width: 10%;
-	margin: 0 auto;
+	padding: 20px;
 }
 
-#player-char-container {
-	float: left;
+#img-spray-can {
+	width: 50px;
 }
 
 #defender-char-container {
-	float: right;
 }
+
+@media screen and (max-width: 1024px) {
+	#game-container {
+		width: unset;
+	}
+}
+
+
+@media screen and (max-width: 640px) {
+
+    #current-char-container {
+		flex-direction: column;
+	}
+
+	/* #attack-button {
+		margin: 20px;
+	} */
+}
+
+

@@ -31,7 +31,7 @@ function Character(name, attack, counter, hp, image, index) {
 		this.hpLabel = $("<p>", { class: "char-label-hp" }).text(this.hp)
 		label.append($("<p>", { class: "char-label-name" }).text(this.name));
 		label.append(this.hpLabel);
-		return div.append(label);;
+		return div.append(label);
 	}
 
 	this.card = this.constructCharacterCard(index);
@@ -69,68 +69,84 @@ function Character(name, attack, counter, hp, image, index) {
 	};
 }
 
-$(document).ready(function () {
-	var game = {
-		// Starts off as a list of all chacters but becomes list of enemies once a PC is chosen
-		characterList: [],
-		playerCharacter: {},
-		currentDefender: {},
+var game = {
+	// Starts off as a list of all chacters but becomes list of enemies once a PC is chosen
+	characterList: [],
+	playerCharacter: {},
+	currentDefender: {},
 
-		/*
-			Returns if the player has chosen their fighter yet
-		*/
-		hasChosenCharacter: function () {
-			return this.playerCharacter.name !== undefined;
-		},
+	/*
+		Returns if the player has chosen their fighter yet
+	*/
+	hasChosenCharacter: function () {
+		return this.playerCharacter.name !== undefined;
+	},
 
-		hasDefender: function () {
-			return this.currentDefender.name !== undefined;
-		},
+	hasDefender: function () {
+		return this.currentDefender.name !== undefined;
+	},
 
-		setChoosenCharacter: function (index) {
-			this.playerCharacter = this.removeCharacter(index);
-			this.characterList.forEach(element => {
-				element.setAsEnemy();
-			});
-			this.playerCharacter.card.appendTo("#player-char");
-		},
+	setChoosenCharacter: function (index) {
+		this.playerCharacter = this.removeCharacter(index);
+		this.characterList.forEach(element => {
+			element.setAsEnemy();
+		});
 
-		setDefender: function (index) {
-			this.currentDefender = this.removeCharacter(index);
+		$("#player-blank").remove();
+		this.playerCharacter.card.appendTo("#player-char");
 
-			this.currentDefender.card.appendTo("#defender-char");
-		},
+	},
 
-		removeDefender: function () {
-			this.currentDefender.card.remove();
-			this.currentDefender = {};			
-		},
+	setDefender: function (index) {
+		this.currentDefender = this.removeCharacter(index);
 
-		removeCharacter: function (index) {
-			var char = this.characterList[index];
-			this.characterList.splice(index, 1);
-			for (var i = 0; i < this.characterList.length; i++) {
-				this.characterList[i].updateIndex(i);
-			}
-			return char;
-		},
+		$("#defender-blank").remove();
+		this.currentDefender.card.appendTo("#defender-char");
+	},
 
-		initializeHTML: function () {
-			var charSelect = $("#char-select").html("");
-			for (var i = 0; i < this.characterList.length; i++) {
-				$("#char-select").append(this.characterList[i].card);
-			}
-		},
+	removeDefender: function () {
+		this.currentDefender.card.remove();
+		this.currentDefender = {};
+		this.createDefenderBlank().appendTo("#defender-char");
+	},
 
-		intializeGame: function (characterStats) {
-			for (var i = 0; i < characterStats.length; i++) {
-				this.characterList.push(new Character(characterStats[i][0], characterStats[i][1], characterStats[i][2], characterStats[i][3], characterStats[i][4], i))
-			};
-
-			this.initializeHTML();
+	removeCharacter: function (index) {
+		var char = this.characterList[index];
+		this.characterList.splice(index, 1);
+		for (var i = 0; i < this.characterList.length; i++) {
+			this.characterList[i].updateIndex(i);
 		}
-	}
+		return char;
+	},
 
+	initializeHTML: function () {
+		var charSelect = $("#char-select").html("");
+		for (var i = 0; i < this.characterList.length; i++) {
+			$("#char-select").append(this.characterList[i].card);
+		}
+	},
+
+	createDefenderBlank: function () {
+		//Containing div for the image and the label		
+		var div = $("<div>", { class: "char-card enemy-card", id: "defender-blank" });
+		div.append($("<img>", { class: "char-img", src: "assets/images/blank.png", alt: "blank" }));
+		return div;
+	},
+
+	intializeGame: function (characterStats) {
+		for (var i = 0; i < characterStats.length; i++) {
+			this.characterList.push(new Character(characterStats[i][0], characterStats[i][1], characterStats[i][2], characterStats[i][3], characterStats[i][4], i))
+		};
+
+		this.createDefenderBlank().appendTo("#defender-char");
+
+		this.initializeHTML();
+	},
+
+
+}
+
+$(document).ready(function () {
 	game.intializeGame(characterStatList);
 
 	$(".char-card").on("click", function (event) {
