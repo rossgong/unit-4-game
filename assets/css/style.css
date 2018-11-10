@@ -16,6 +16,20 @@ div {
 	margin: 10px;
 }
 
+p {
+	line-height: 20px;
+}
+
+#results-page {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	z-index: 4;
+
+	background-color: white;
+}
+
 #game-container {
 	background-image: url("../images/soul.png");
 	background-size: contain;
@@ -24,6 +38,7 @@ div {
 	height: 100vh;
 	width: 1024px;
 	margin: 0 auto;
+	position: relative;
 }
 
 #char-select {

@@ -168,7 +168,6 @@ var game = {
 		div.append($("<img>", { class: "char-img", src: "assets/images/blank.png", alt: "blank" }));
 
 		div.append($("<div>", { class: "char-label" }).append($("<p>", { class: "char-label-name" }).text("SELECT A CHARACTER!")));
-		console.log(div);
 		return div;
 	},
 
@@ -185,7 +184,19 @@ var game = {
 	},
 
 	lose: function () {
+		var resultsDiv = $("#game-container");
 
+		resultsDiv.html("<h1>You lose</h1>");
+		resultsDiv.append("<p>Try again next time " + this.playerCharacter.name + "</p>");
+		// resultsDiv.append(this.playerCharacter.constructCharacterCard());
+	},
+
+	win: function () {
+		var resultsDiv = $("#game-container");
+
+		resultsDiv.html("<h1>You win</h1>");
+		resultsDiv.append("<hr><p>" + this.playerCharacter.name + ", you might be the leader of the Tokyo underground but will you be able to defend your turf? I can assure you that these cats will be back, and they will not crumble under the pressure. Will you?</p>");
+		// resultsDiv.append(this.playerCharacter.constructCharacterCard());
 	}
 }
 
@@ -218,9 +229,13 @@ $(document).ready(function () {
 			if (!game.playerCharacter.isAlive()) {
 				game.lose();
 			}
-
+			
 			if (!game.currentDefender.isAlive()) {
 				game.removeDefender();
+			}
+
+			if (game.characterList.length === 0) {
+				game.win();
 			}
 		}
 	});
