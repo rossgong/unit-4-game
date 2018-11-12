@@ -187,16 +187,28 @@ var game = {
 		var resultsDiv = $("#game-container");
 
 		resultsDiv.html("<h1>You lose</h1>");
-		resultsDiv.append("<p>Try again next time " + this.playerCharacter.name + "</p>");
-		// resultsDiv.append(this.playerCharacter.constructCharacterCard());
+		resultsDiv.append("<p>You have lost the streets of Tokyo. Your graphiti has been covered up and has been lost to history. No one will remember the street legend " + this.playerCharacter.name + ".</p>");
+		resultsDiv.append(this.createResetButton());
 	},
 
 	win: function () {
 		var resultsDiv = $("#game-container");
 
 		resultsDiv.html("<h1>You win</h1>");
-		resultsDiv.append("<hr><p>" + this.playerCharacter.name + ", you might be the leader of the Tokyo underground but will you be able to defend your turf? I can assure you that these cats will be back, and they will not crumble under the pressure. Will you?</p>");
-		// resultsDiv.append(this.playerCharacter.constructCharacterCard());
+		resultsDiv.append("<hr><p>" + this.playerCharacter.name + 
+		", you might be the leader of the Tokyo underground but will you be able to defend your turf? I can assure you that these cats will be back, and they will not crumble under the pressure. Will you?</p>");
+		
+		resultsDiv.append(this.createResetButton());
+	},
+
+	createResetButton() {
+		var resetButton = $("<button>").text("Reset");
+
+		resetButton.on("click", function(event) {
+			window.location.reload();
+		});
+
+		return resetButton;		
 	}
 }
 

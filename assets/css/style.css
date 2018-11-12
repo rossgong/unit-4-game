@@ -20,6 +20,14 @@ p {
 	line-height: 20px;
 }
 
+button {
+	background-color: darkred;
+	border: 0;
+	font-family: inherit;
+	color: white;
+	padding: 20px;
+}
+
 #results-page {
 	position: absolute;
 	top: 0;
@@ -99,13 +107,7 @@ p {
 	text-align: center
 }
 
-#attack-button {
-	background-color: darkred;
-	border: 0;
-	font-family: inherit;
-	color: white;
-	padding: 20px;
-}
+
 
 #img-spray-can {
 	width: 50px;
